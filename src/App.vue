@@ -1,12 +1,8 @@
 <template>
   <div class="index">
-    <home-page />
+    <router-view />
   </div>
 </template>
-
-<script lang="ts" setup>
-import HomePage from './view/pages/HomePage.vue';
-</script>
 
 <style>
 * {
