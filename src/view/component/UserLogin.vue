@@ -1,66 +1,107 @@
 <template>
-    <el-dialog v-model="visibleRef" 
-      style="background: linear-gradient(to right, #222222 60%, #153649 0);"
-      width="670px" 
-      :align-center="true"
-      @before-close="updateVisible"
-      close-icon="CloseBold">
-      <div class="dialog" style="height: 100%;width: 100%;">
-        <div class="login-form">
-          <div class="login-welcom">
-            <h1>欢迎回来&nbsp;👋🏻</h1>
-            <p style="font-size: 16px;">登录您的帐户</p>
-          </div>
-          <div class="login-form-line">
-            <input type="email" placeholder="电子邮箱" :autofocus="true" />
-            <p class="under">跳过密码；通过电子邮件向我发送登录链接</p>
-            <input type="password" placeholder="密码" />
-            <p class="under">我忘记密码了</p>
-          </div>
-          <el-button class="button" type="primary">
-            <el-icon><Unlock /></el-icon>
-            <p style="margin-left: 2px;">登录</p>
+  <el-dialog
+    v-model="visibleRef"
+    style="background: linear-gradient(to right, #222222 60%, #153649 0)"
+    width="670px"
+    :align-center="true"
+    @before-close="updateVisible"
+    close-icon="CloseBold"
+  >
+    <div class="dialog" style="height: 100%; width: 100%">
+      <div class="login-form">
+        <div class="login-welcom">
+          <h1>欢迎回来&nbsp;👋🏻</h1>
+          <p style="font-size: 16px">登录您的帐户</p>
+        </div>
+        <div class="login-form-line">
+          <input type="email" placeholder="电子邮箱" :autofocus="true" />
+          <p class="under">跳过密码；通过电子邮件向我发送登录链接</p>
+          <input type="password" placeholder="密码" />
+          <p class="under">我忘记密码了</p>
+        </div>
+        <el-button class="button" type="primary">
+          <el-icon><Unlock /></el-icon>
+          <p style="margin-left: 2px">登录</p>
+        </el-button>
+      </div>
+      <div class="other-line">
+        <div style="width: 70%; height: 70%">
+          <el-button
+            style="
+              background-color: white;
+              width: 100%;
+              height: 16%;
+              font-size: 16px;
+              margin-bottom: 1rem;
+              color: black;
+            "
+          >
+            <el-icon><ChromeFilled /></el-icon>
+            <p style="margin-left: 4px">使用 Goolge 登录</p>
+          </el-button>
+          <el-button
+            style="
+              background-color: white;
+              width: 100%;
+              height: 16%;
+              font-size: 16px;
+              margin-left: 0;
+              margin-bottom: 1rem;
+              color: black;
+            "
+          >
+            <el-icon><ChromeFilled /></el-icon>
+            <p style="margin-left: 4px">使用 GitHub 登录</p>
+          </el-button>
+          <el-button
+            style="
+              background-color: white;
+              width: 100%;
+              height: 16%;
+              font-size: 16px;
+              margin-left: 0;
+              margin-bottom: 1rem;
+              color: black;
+            "
+          >
+            <el-icon><ChromeFilled /></el-icon>
+            <p style="margin-left: 4px">使用 WeChat 登录</p>
+          </el-button>
+          <el-button
+            style="
+              background-color: white;
+              width: 100%;
+              height: 16%;
+              font-size: 16px;
+              margin-left: 0;
+              margin-bottom: 1rem;
+              color: black;
+            "
+          >
+            <el-icon><UserFilled /></el-icon>
+            <p style="margin-left: 4px">使用通行秘钥登录</p>
           </el-button>
         </div>
-        <div class="other-line">
-          <div style="width: 70%;height: 70%;">
-            <el-button style="background-color: white; width: 100%; height: 16%;font-size: 16px; margin-bottom: 1rem;color: black;">
-              <el-icon><ChromeFilled /></el-icon>
-              <p style="margin-left: 4px;">使用 Goolge 登录</p>
-            </el-button>
-            <el-button style="background-color: white; width: 100%; height: 16%;font-size: 16px;margin-left: 0; margin-bottom: 1rem;color: black;">
-              <el-icon><ChromeFilled /></el-icon>
-              <p style="margin-left: 4px;">使用 GitHub 登录</p>
-            </el-button>
-            <el-button style="background-color: white; width: 100%; height: 16%;font-size: 16px;margin-left: 0; margin-bottom: 1rem;color: black;">
-              <el-icon><ChromeFilled /></el-icon>
-              <p style="margin-left: 4px;">使用 WeChat 登录</p>
-            </el-button>
-            <el-button style="background-color: white; width: 100%; height: 16%;font-size: 16px;margin-left: 0; margin-bottom: 1rem;color: black;">
-              <el-icon><UserFilled /></el-icon>
-              <p style="margin-left: 4px;">使用通行秘钥登录</p>
-            </el-button>
-          </div>
-        </div>
       </div>
-    </el-dialog>
+    </div>
+  </el-dialog>
 </template>
 
 <script lang="ts" setup>
-import { defineProps, defineEmits, computed } from 'vue';
+import { defineProps, defineEmits, computed } from "vue";
 const props = defineProps<{
-  visible: boolean
+  visible: boolean;
 }>();
-const emit = defineEmits(['updateVisible']);
+const emit = defineEmits(["update:visible"]);
 const visibleRef = computed({
   get: () => props.visible,
   set: (value: boolean) => {
-    emit('updateVisible', value);
-  }
+    emit("update:visible", value);
+  },
 });
 const updateVisible = () => {
   visibleRef.value = !visibleRef.value;
-}
+};
 </script>
 
 <style scoped>
@@ -105,7 +146,7 @@ const updateVisible = () => {
 }
 
 .login-form-line input {
-  padding: .8rem;
+  padding: 0.8rem;
   width: 80%;
   margin-top: 1rem;
   border-radius: 4px;

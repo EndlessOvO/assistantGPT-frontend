@@ -1,18 +1,13 @@
 <template>
   <div class="index">
-    <el-button type="primary" @click="visible = !visible">Primary</el-button>
-    <user-login :visible="visible" @updateVisible="handleUpdateVisible"></user-login>
+    <!-- <user-login :visible="visible"></user-login> -->
+    <top-navigation class="top-navigation"></top-navigation>
   </div>
 </template>
 
 <script lang="ts" setup>
-import UserLogin from '../component/UserLogin.vue';
-import { ref } from 'vue';
-const visible = ref<boolean>(false);
-
-const handleUpdateVisible = (value: boolean) => {
-  visible.value = value;
-}
+// import UserLogin from "../component/UserLogin.vue";
+import TopNavigation from "../component/TopNavigation.vue";
 </script>
 
 <style scoped>
@@ -21,4 +16,8 @@ const handleUpdateVisible = (value: boolean) => {
   width: 100%;
 }
 
+.top-navigation {
+  height: 8%;
+  width: 100%;
+}
 </style>
