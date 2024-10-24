@@ -10,9 +10,9 @@
       </span>
       <template #dropdown>
         <el-dropdown-menu>
-          <el-dropdown-item>主页</el-dropdown-item>
-          <el-dropdown-item>信息</el-dropdown-item>
-          <el-dropdown-item>退出</el-dropdown-item>
+          <el-dropdown-item v-for="item in menus" :key="item">
+            <span style="width: 120px; text-align: center">{{ item }}</span>
+          </el-dropdown-item>
         </el-dropdown-menu>
       </template>
     </el-dropdown>
@@ -22,6 +22,7 @@
 <script setup lang="ts">
 import { defineProps } from "vue";
 const props = defineProps<{ username: String }>();
+const menus: string[] = ["主页", "信息", "退出"];
 </script>
 
 <style scoped>

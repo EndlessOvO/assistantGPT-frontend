@@ -10,7 +10,10 @@
   padding: 0;
 }
 
-html, body, #app , .index {
+html,
+body,
+#app,
+.index {
   height: 100%;
   width: 100%;
 }

@@ -1,5 +1,5 @@
 <template>
-  <div class="index" style="border: none; box-shadow: none">
+  <div class="index" style="box-shadow: none">
     <slot></slot>
     <span class="title">
       {{ props.title }}
@@ -14,7 +14,6 @@ const props = defineProps<{ title: string }>();
 
 <style scoped>
 .index {
-  border: none;
   box-shadow: none;
   height: 100%;
   width: 100%;
@@ -29,15 +28,18 @@ const props = defineProps<{ title: string }>();
 .title {
   margin-left: 0.5rem;
   font-size: 16px;
+  font-weight: bold;
+  color: #242323;
+  user-select: none;
 }
 
 /* 悬浮变色 */
 .index:hover {
-  background-color: #f0f0f0;
+  background-color: #eaeaea;
 }
 
 /* 点击变色 */
 .index:active {
-  background-color: #e0e0e0;
+  background-color: #b7b7b7;
 }
 </style>
